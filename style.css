@@ -1,0 +1,264 @@
+* {
+    font-family: Open sans, Helvetica, sans-serif;
+    margin: 0;
+}
+
+body {
+    background-color: #111;
+}
+
+.container {
+    max-width: 768px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-container {
+    background-color: #000;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+#player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#videoTitle {
+    font-weight: bold;
+    display: block;
+    font-size: 2em;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+#videoDescription {
+    margin: 15px 0px 15px 0px;
+    font-size: 0.9rem;
+    color: #999999;
+}
+
+#animeInfoContainer {
+    background-color: #222222;
+    padding: 0px 20px 0px 20px;
+}
+
+#animeInfoContainer span[id=subordub] {
+    text-transform: uppercase;
+}
+
+#animeInfoContainer span[id=status] {
+    background-color: coral;
+}
+
+#animeInfoContainer span {
+    background-color: #32B4FE;
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+    .video-title {
+        font-size: 1.5em;
+    }
+}
+
+.container-search {
+    display: flex;
+    align-items: center;
+    background-color: #222222;
+    padding: 10px;
+}
+
+.search-input {
+    background-color: #333333;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px 0 0 20px;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.search-button {
+    background-color: #32B4FE;
+    color: white;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.left-text {
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+#selectElement {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    outline: none;
+    appearance: none;
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#episodeButton {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#resultContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    color: #fff;
+}
+
+#resultContainer div {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: #222;
+}
+
+#resultContainer>div>span[id=subType] {
+    background-color: #32B4FE;
+    color: #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin-right: 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+#resultContainer>div>span[id=dubType] {
+    background-color: #fe4332;
+    color: #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    margin-right: 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+#resultContainer>div>span[id=releaseDate] {
+    font-size: 0.8rem;
+    color: #999999;
+}
+
+#resultContainer div:last-child {
+    border-bottom: none;
+}
+
+#qualityContainer {
+    display: inline;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#qualityContainer span {
+    padding: 0px;
+    margin-right: 10px;
+    background: none;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.pill-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#downloadButton {
+    background-color: rgb(70, 79, 60);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: none;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline;
+}
+
+#serverSelect {
+    display: inline;
+}
+
+#mainLoading {
+    width: 100%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px 10px 0px;
+}
+
+.modern-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 0px 0px 20px 20px;
+    font-size: 0.7rem;
+}
+
+.modern-footer .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0px 5px;
+}

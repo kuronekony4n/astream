@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ANIME - KuronekoNy4n</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="video-container">
+            <iframe id="player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" scrolling="no" allowfullscreen src="https://www.youtube.com/embed/3yOVIxOHiaw?controls=0"></iframe>
+        </div>
+
+        <div class="container-search">
+            <input type="text" id="queryInput" placeholder="Start by searching.." class="search-input" value="">
+            <button id="searchBtn" class="search-button">Go</button>
+        </div>
+
+        <div class="container-sresult">
+            <div id="resultContainer">
+            </div>
+        </div>
+
+        <div id="animeInfoContainer" style="display: none;">
+            <p id="videoTitle"></p>
+            <span id="status"></span>
+            <span id="subordub"></span>
+            <span id="type"></span>
+            <p id="videoDescription"></p>
+
+            <div class="select-container">
+                <div class="left-text">EPISODE</div>
+                <select id="selectElement"></select>
+                <button id="episodeButton">Watch</button>
+            </div>
+
+            <div id="qualityContainer" style="display: none;">
+                <span class="qualityspan">RESOLUTION</span>
+                <div id="serverSelect"></div>
+                <a href="" id="downloadButton" target="_blank">download</a>
+            </div>
+        </div>
+
+        <div id="mainLoading" style="display: none;">
+            <img src="loading-animation.gif" width="30px" />
+        </div>
+
+        <footer class="modern-footer">
+            <div class="footer">
+                Powered by <a href="https://github.com/consumet/api.consumet.org" target="_blank">ConsumetAPI</a> -
+                <a href="https://github.com/kuronekony4n/anime" target="_blank">Github</a> -
+                <a href="https://facebook.com/addstring">Facebook</a>
+            </div>
+        </footer>
+    </div>
+    <script src="script-ob.js"></script>
+
+</body>
+
+</html>
