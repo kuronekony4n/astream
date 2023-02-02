@@ -7,16 +7,6 @@ body {
     background-color: #111;
 }
 
-.counterDiv {
-    display: flex;
-    margin: 0 auto;
-}
-
-.counterDiv img {
-    filter: invert();
-    transform: scale(0.6);
-}
-
 .container {
     max-width: 768px;
     margin: 0 auto;
@@ -270,4 +260,10 @@ body {
     text-decoration: none;
     font-weight: bold;
     margin: 0px 5px;
+}
+
+.modern-footer img {
+    display: block;
+    filter: invert();
+    transform: scale(0.5);
 }
