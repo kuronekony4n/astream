@@ -237,7 +237,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px 20px 0px;
 }
 
 .modern-footer {
@@ -262,8 +262,26 @@ body {
     margin: 0px 5px;
 }
 
-.modern-footer img {
-    display: block;
+.counterDiv {
+    background-color: rgb(16, 12, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.counterDiv img {
     filter: invert();
-    transform: scale(0.5);
+    transform: scale(0.3);
+}
+
+.recent-button {
+    background-color: #1d1d1d;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    width: 100%;
+    padding: 20px 20px;
 }
