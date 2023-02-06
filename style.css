@@ -79,6 +79,8 @@ body {
     align-items: center;
     background-color: #222222;
     padding: 10px;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .search-input {
@@ -87,7 +89,8 @@ body {
     color: white;
     padding: 10px 20px;
     font-size: 1rem;
-    flex: 4;
+    width: 80%;
+    padding-left: 10px;
 }
 
 .search-button {
@@ -95,9 +98,8 @@ body {
     color: white;
     border: none;
     border-radius: 0 20px 20px 0;
-    padding: 10px 35px 9px 16px;
+    padding: 10px 20px 9px 16px;
     cursor: pointer;
-    width: 30px;
 }
 
 .home-button {
@@ -107,7 +109,10 @@ body {
     border-radius: 20px 0px 0px 20px;
     padding: 10px 30px 10px 20px;
     cursor: pointer;
-    width: 30px;
+    display: block;
+    width: 50px;
+    text-align: center;
+    margin-top: 1px;
 }
 
 .container-search svg {
