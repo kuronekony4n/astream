@@ -97,8 +97,9 @@ body {
     color: white;
     border: none;
     border-radius: 0 20px 20px 0;
-    padding: 10px 20px 9px 16px;
+    padding: 10.4px 20px 9.4px 16px;
     cursor: pointer;
+    margin-top: 0.2px;
 }
 
 .home-button {
@@ -111,7 +112,7 @@ body {
     display: block;
     width: 50px;
     text-align: center;
-    margin-top: 1px;
+    margin-top: 0.2px;
 }
 
 .container-search svg {
