@@ -193,7 +193,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 1px;
 }
 
 #resultContainer .dubDir {
@@ -210,7 +209,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 1px;
 }
 
 #resultContainer #releaseYear {
