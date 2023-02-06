@@ -181,11 +181,10 @@ body {
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bold;
-    display: block;
     height: 20px;
     width: 50px;
     text-align: center;
-    margin-top: 1px;
+    margin-top: -1px;
 }
 
 #resultContainer .dubDir {
@@ -195,11 +194,10 @@ body {
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bold;
-    display: block;
     height: 20px;
     width: 50px;
     text-align: center;
-    margin-top: 1px;
+    margin-top: -1px;
 }
 
 #resultContainer #releaseYear {
