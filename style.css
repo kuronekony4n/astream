@@ -90,7 +90,7 @@ body {
     padding: 10px 20px;
     font-size: 1rem;
     width: 80%;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 .search-button {
@@ -181,8 +181,9 @@ body {
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: bold;
-    height: 20px;
     width: 50px;
+    height: 20px;
+    vertical-align: middle;
     text-align: center;
     margin-top: -1px;
 }
