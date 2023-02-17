@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>fast search - astream</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../-media/fav2.svg" sizes="any" type="image/svg+xml">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="titleBig">Fast Search</h1>
+    <div class="container-search">
+      <input type="text" id="search" placeholder="Search: e.g. Naruto" class="search-input" style="border-radius: 20px;"
+        value="">
+    </div>
+    <div id="resultContainer" class="search_results"></div>
+    <p class="fastsearchnotif">
+      Try japanese name! like Shingeki no Kyojin instead of Attack on Titan!<br>
+      Total anime list: 11889. Last updated Feb, 17 2023. <br><br>
+      Any anime that have been updated after this date is not gonna shows up.
+      Please use the main search if you can't find the anime you're looking
+      for!
+    </p>
+
+
+    <div id="footerContainer" style="display: block;">
+      <div class="notif" id="spanDonate">
+        <span>Dukung website ini dengan cara berdonasi mulai dari Rp1000!</span>
+        <a href="https://sociabuzz.com/willydev/tribe" target="_blank" title="Thank you!">DONASI</a>
+      </div>
+
+      <footer class="modern-footer">
+        <div class="footer">
+          by <a href="https://facebook.com/addstring" target="_blank">WillyDev</a> -
+          <a href="/">Home</a> -
+          <a href="/app" target="_blank">Download App</a>
+        </div>
+      </footer>
+
+      <div class="counterDiv">
+        <div id="histats_counter"></div>
+        <script type="text/javascript">
+          var _Hasync = _Hasync || [];
+          _Hasync.push(['Histats.start', '1,4738080,4,600,110,30,00001011']);
+          _Hasync.push(['Histats.fasi', '1']);
+          _Hasync.push(['Histats.track_hits', '']);
+          (function () {
+            var hs = document.createElement('script');
+            hs.type = 'text/javascript';
+            hs.async = true;
+            hs.src = ('https://s10.histats.com/js15_as.js');
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+          })();
+        </script>
+        <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4738080&101" alt=""
+              border="0"></a></noscript>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const spanElement = document.getElementById("spanDonate");
+    let contentDonate = [
+      "<span>Support this website by making a donation starting from 1$!</span><a href='https://sociabuzz.com/willydev/tribe' target='_blank' title='Thank you!'>DONATE</a>",
+      "<span>Dukung website ini dengan cara berdonasi mulai dari Rp1000!</span><a href='https://sociabuzz.com/willydev/tribe' target='_blank' title='Thank you!'>DONASI</a>"
+    ];
+    let indexDonate = 0;
+    setInterval(function () {
+      spanElement.innerHTML = contentDonate[indexDonate];
+      indexDonate = (indexDonate + 1) % contentDonate.length;
+    }, 5000);
+  </script>
+  <script src="search.js"></script>
+</body>
+
+</html>
