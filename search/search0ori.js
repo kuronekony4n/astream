@@ -1,14 +1,14 @@
 const searchInput = document.getElementById("search");
 const animeList = document.getElementById("resultContainer");
 
-const searchairport = async (searchBox) => {
+const searchanime = async (searchBox) => {
   const res = await fetch("https://gist.githubusercontent.com/kuronekony4n/175eb7a21a688ac3280b4681943cd3fc/raw/8921b5adf7b35ba5eae651160e1ca8f2e1961d01/animelist.json");
   const airports = await res.json();
 
-  let fits = airports.filter((airport) => {
+  let fits = airports.filter((anime) => {
     const regex = new RegExp(`^${searchBox}`, "gi");
     return (
-      airport.name.match(regex) );
+      anime.name.match(regex));
   });
 
   if (searchBox.length === 0) {
@@ -21,7 +21,7 @@ const searchairport = async (searchBox) => {
 
 const outputHtml = (fits) => {
   if (fits.length > 0) {
-    const airportFits = fits
+    const animeFits = fits
       .map(
         (fit) =>
           `<div class="fastsearchrow">
@@ -29,8 +29,8 @@ const outputHtml = (fits) => {
           </div>`
       )
       .join("");
-      animeList.innerHTML = airportFits;
+    animeList.innerHTML = animeFits;
   }
 };
 
-searchInput.addEventListener("input", () => searchairport(search.value));
+searchInput.addEventListener("input", () => searchanime(search.value));

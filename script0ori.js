@@ -67,8 +67,6 @@ async function getSearchByEnter(event) {
         recentBtn.style.display = "none";
         resultContainer.innerHTML = "";
 
-
-
         const query = queryInput.value;
         statsFrame.src = `stats.html?data=${query}&type=Search`;
         const res = await fetch(`https://api.consumet.org/anime/gogoanime/${query}?page=1`);
@@ -84,7 +82,6 @@ homeBtn.addEventListener("click", function () {
     } else {
         window.location.href = "/";
     }
-
 });
 
 

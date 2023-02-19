@@ -234,12 +234,12 @@ body {
     background-color: #222222;
 }
 
-.fastsearchrow a{
+.fastsearchrow a {
     color: #fff;
     text-decoration: none;
 }
 
-.fastsearchnotif{
+.fastsearchnotif {
     padding: 10px 50px 20px 50px;
     color: #999999;
     font-size: 0.8rem;
@@ -249,7 +249,7 @@ body {
     text-align: center;
 }
 
-h1.titleBig{
+h1.titleBig {
     color: #fff;
     display: flex;
     justify-content: center;
@@ -388,35 +388,42 @@ img {
 }
 
 .container img {
-    display: block!important;
+    display: block !important;
 }
 
-.app-container{
-    display:flex;
+.app-container {
+    display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
     padding: 40px 20px 20px 20px;
     background-color: #222222;
     color: #fff;
 
 }
-.app-container a{
+
+.app-container a {
     display: block;
     background-color: #32B4FE;
     padding: 5px 10px;
     border-radius: 5px;
     color: #fff;
     text-decoration: none;
-    text-transform: uppercase;
     font-weight: bold;
-    margin: 20px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
 }
 
+.app-container a#windows {
+    background-color: #6A9169;
+}
 
-.app-container span{
-    margin:20px 30px 0px 30px;
-    color:#999999;
+.app-container a:hover {
+    opacity: 0.9;
+}
+
+.app-container span {
+    margin: 20px 30px 0px 30px;
+    color: #999999;
     font-size: 12px;
-
+    text-align: center;
 }
