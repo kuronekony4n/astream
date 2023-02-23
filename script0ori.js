@@ -10,6 +10,8 @@ const pageTitle = document.getElementById("title");
 const videoPlayer = document.getElementById("player")
 const statsFrame = document.getElementById("statsFrame")
 
+const apiEndpoint = "apiconsumet.vercel.app";
+
 // Randomly set player iframes to these video onLoad
 var youtubeLinks = [
     "https://www.youtube.com/embed/3yOVIxOHiaw",
@@ -52,7 +54,7 @@ searchBtn.addEventListener("click", async function () {
 
     const query = queryInput.value;
     statsFrame.src = `stats.html?data=${query}&type=Search`;
-    const res = await fetch(`https://api.consumet.org/anime/gogoanime/${query}?page=1`);
+    const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/${query}?page=1`);
     const data = await res.json();
     displayResults(data.results);
 });
@@ -69,7 +71,7 @@ async function getSearchByEnter(event) {
 
         const query = queryInput.value;
         statsFrame.src = `stats.html?data=${query}&type=Search`;
-        const res = await fetch(`https://api.consumet.org/anime/gogoanime/${query}?page=1`);
+        const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/${query}?page=1`);
         const data = await res.json();
         displayResults(data.results);
     }
@@ -91,7 +93,7 @@ recentBtn.addEventListener("click", async function () {
     mainLoading.style.display = "flex";
     recentBtn.style.display = "none";
 
-    const res = await fetch(`https://api.consumet.org/anime/gogoanime/recent-episodes`);
+    const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/recent-episodes`);
     const data = await res.json();
     displayRecent(data.results);
 });
@@ -119,14 +121,7 @@ function displayRecent(results) {
             mainLoading.style.display = "flex";
             resultContainer.style.display = `none`;
 
-            if (appParam == 'true') {
-                let isApp = "&app=true";
-                updateUrl(`index.html?anime=${result.id}${isApp}`);
-            } else {
-                updateUrl(`index.html?anime=${result.id}`);
-            }
-
-            const res = await fetch(`https://api.consumet.org/anime/gogoanime/info/${result.id}`);
+            const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/info/${result.id}`);
             const data = await res.json();
             displayAnimeInfo(data);
         });
@@ -156,7 +151,7 @@ function displayResults(results) {
             mainLoading.style.display = "flex";
             resultContainer.style.display = `none`;
 
-            const res = await fetch(`https://api.consumet.org/anime/gogoanime/info/${result.id}`);
+            const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/info/${result.id}`);
             const data = await res.json();
             displayAnimeInfo(data);
         });
@@ -172,7 +167,7 @@ async function fetchAnimeInfo() {
         recentBtn.style.display = "none";
         mainLoading.style.display = "flex";
 
-        const res = await fetch(`https://api.consumet.org/anime/gogoanime/info/${animeParam}`);
+        const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/info/${animeParam}`);
         const data = await res.json();
         displayAnimeInfo(data);
     }
@@ -223,7 +218,7 @@ function displayAnimeInfo(data) {
         mainLoading.style.display = "flex";
 
         const episodeId = document.getElementById("selectElement").value;
-        const res = await fetch(`https://api.consumet.org/anime/gogoanime/watch/${episodeId}`);
+        const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/watch/${episodeId}`);
         const episodeData = await res.json();
         displayWatchInfo(episodeData);
     });
