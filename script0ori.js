@@ -253,9 +253,9 @@ function displayWatchInfo(episodeData) {
             selectedServer = proxyweb + selectedServer;
 
             if (appParam == 'true') {
-                updateUrl(`?playInApp=${selectedServer}`);
+                updateUrl(`?playInApp=${serverUrl}`);
             } else {
-                videoPlayer.src = `/player/?url=${selectedServer}`;
+                videoPlayer.src = `/player/?url=${serverUrl}`;
             }
         });
     };
