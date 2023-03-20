@@ -247,14 +247,16 @@ function displayWatchInfo(episodeData) {
     for (let i = 0; i < watchBtn.length; i++) {
         watchBtn[i].addEventListener("click", function () {
             const serverUrl = this.value;
-            let selectedServer = serverUrl;
+            let proxyweb = 'https://anime-w.orewa.workers.dev/'
+            let selectedServer = serverUrl.replace('https://', '');
+            selectedServer = selectedServer.replace('http://', '');
+            selectedServer = proxyweb + selectedServer;
 
             if (appParam == 'true') {
                 updateUrl(`?playInApp=${selectedServer}`);
             } else {
-                videoPlayer.src = `/player?url=${selectedServer}`;
+                videoPlayer.src = `/player/?url=${selectedServer}`;
             }
-
         });
     };
 }
