@@ -247,15 +247,15 @@ function displayWatchInfo(episodeData) {
     for (let i = 0; i < watchBtn.length; i++) {
         watchBtn[i].addEventListener("click", function () {
             const serverUrl = this.value;
-            let proxyweb = 'https://anime-w.orewa.workers.dev/'
-            let selectedServer = serverUrl.replace('https://', '');
-            selectedServer = selectedServer.replace('http://', '');
-            selectedServer = proxyweb + selectedServer;
+            let proxyweb = 'https://corsbypass.herokuapp.com/'
+            // let selectedServer = serverUrl.replace('https://', '');
+            // selectedServer = selectedServer.replace('http://', '');
+            let selectedServer = proxyweb + serverUrl;
 
             if (appParam == 'true') {
-                updateUrl(`?playInApp=${serverUrl}`);
+                updateUrl(`?playInApp=${selectedServer}`);
             } else {
-                videoPlayer.src = `/player/?url=${serverUrl}`;
+                videoPlayer.src = `/player/?url=${selectedServer}`;
             }
         });
     };
