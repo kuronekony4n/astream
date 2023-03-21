@@ -272,3 +272,23 @@ setInterval(function () {
     spanElement.innerHTML = contentDonate[indexDonate];
     indexDonate = (indexDonate + 1) % contentDonate.length;
 }, 5000);
+
+
+// Eps Button Navigation
+const epsSelect = document.getElementById('selectElement');
+function firstEps() {
+    epsSelect.selectedIndex = epsSelect.options.length - 1;
+}
+function prevEps() {
+    if (epsSelect.selectedIndex < epsSelect.options.length - 1) {
+        epsSelect.selectedIndex++;
+    }
+}
+function nextEps() {
+    if (epsSelect.selectedIndex > 0) {
+        epsSelect.selectedIndex--;
+    }
+}
+function lastEps() {
+    epsSelect.selectedIndex = 0;
+}

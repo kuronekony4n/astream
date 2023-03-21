@@ -441,3 +441,21 @@ img {
     font-size: 12px;
     text-align: center;
 }
+
+.extraBtn {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.extraBtn button {
+    flex: 1;
+    padding: 0.3rem;
+    background-color: #333;
+    color: #fff;
+    border: 0;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+}
