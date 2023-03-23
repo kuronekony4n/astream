@@ -9,6 +9,12 @@ const mainLoading = document.getElementById("mainLoading");
 const pageTitle = document.getElementById("title");
 const videoPlayer = document.getElementById("player")
 const statsFrame = document.getElementById("statsFrame")
+const watchBtn = document.getElementById("episodeButton");
+
+
+var dataTitle;
+var dataEpisode;
+var dataURL;
 
 const apiEndpoint = "apiconsumet.vercel.app";
 
@@ -33,7 +39,7 @@ function updateUrl(newUrl) {
 }
 
 // Check if the site is visited using android app
-let urlParams = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search);
 let appParam = urlParams.get('app');
 if (appParam == 'true') {
     const playerContainer = document.getElementById("playerContainer");
@@ -48,9 +54,11 @@ searchBtn.addEventListener("click", async function () {
     animeInfoContainer.style.display = `none`;
     resultContainer.style.display = `flex`;
     mainLoading.style.display = "flex";
-    pageTitle.innerHTML = `astream - kuronekony4n`
+    pageTitle.innerHTML = `astream - watch anime`
     recentBtn.style.display = "none";
     resultContainer.innerHTML = "";
+
+    updateUrl(`/`);
 
     const query = queryInput.value;
     statsFrame.src = `stats.html?data=${query}&type=Search`;
@@ -65,9 +73,11 @@ async function getSearchByEnter(event) {
         animeInfoContainer.style.display = `none`;
         resultContainer.style.display = `flex`;
         mainLoading.style.display = "flex";
-        pageTitle.innerHTML = `astream - kuronekony4n`
+        pageTitle.innerHTML = `astream - watch anime`
         recentBtn.style.display = "none";
         resultContainer.innerHTML = "";
+
+        updateUrl(`/`);
 
         const query = queryInput.value;
         statsFrame.src = `stats.html?data=${query}&type=Search`;
@@ -121,6 +131,9 @@ function displayRecent(results) {
             mainLoading.style.display = "flex";
             resultContainer.style.display = `none`;
 
+            updateUrl(`/?anime=${result.id}`);
+            dataURL = `${result.id}`
+
             const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/info/${result.id}`);
             const data = await res.json();
             displayAnimeInfo(data);
@@ -151,6 +164,9 @@ function displayResults(results) {
             mainLoading.style.display = "flex";
             resultContainer.style.display = `none`;
 
+            updateUrl(`/?anime=${result.id}`);
+            dataURL = `${result.id}`
+
             const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/info/${result.id}`);
             const data = await res.json();
             displayAnimeInfo(data);
@@ -166,6 +182,8 @@ async function fetchAnimeInfo() {
     if (typeof animeParam !== 'undefined' && animeParam !== null) {
         recentBtn.style.display = "none";
         mainLoading.style.display = "flex";
+
+        dataURL = `${animeParam}`
 
         const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/info/${animeParam}`);
         const data = await res.json();
@@ -183,7 +201,8 @@ function displayAnimeInfo(data) {
 
     const title = document.getElementById("videoTitle");
     title.innerHTML = `${data.title}`;
-    pageTitle.innerHTML = `${data.title.toLowerCase()} - kuronekony4n`
+    dataTitle = `${data.title}`;
+    pageTitle.innerHTML = `${data.title.toLowerCase()} - astream`
 
     statsFrame.src = `stats.html?data=${data.title}&type=Watch`;
 
@@ -210,12 +229,16 @@ function displayAnimeInfo(data) {
         episodeSelect.appendChild(option);
     });
 
-    const watchBtn = document.getElementById("episodeButton");
     watchBtn.addEventListener("click", async function () {
         const serverSelect = document.getElementById("serverSelect");
         serverSelect.innerHTML = "";
         watchContainer.style.display = "none";
         mainLoading.style.display = "flex";
+
+        var selectElement = document.getElementById("selectElement");
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        dataEpisode = selectedOption.innerText;
+        addHistory();
 
         const episodeId = document.getElementById("selectElement").value;
         const res = await fetch(`https://${apiEndpoint}/anime/gogoanime/watch/${episodeId}`);
@@ -243,9 +266,9 @@ function displayWatchInfo(episodeData) {
         serverSelect.appendChild(option);
     });
 
-    const watchBtn = document.querySelectorAll(".pill-button");
-    for (let i = 0; i < watchBtn.length; i++) {
-        watchBtn[i].addEventListener("click", function () {
+    const resoBtn = document.querySelectorAll(".pill-button");
+    for (let i = 0; i < resoBtn.length; i++) {
+        resoBtn[i].addEventListener("click", function () {
             const serverUrl = this.value;
             let proxyweb = 'https://corsbypass.herokuapp.com/'
             // let selectedServer = serverUrl.replace('https://', '');
@@ -274,6 +297,40 @@ setInterval(function () {
 }, 5000);
 
 
+// Format unicode date to a readable one (** hours ago)
+function getTimeDifference(date) {
+    const currentDate = new Date();
+    const timestamp = new Date(date);
+    const difference = currentDate - timestamp;
+
+    const seconds = Math.floor(difference / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const weeks = Math.floor(days / 7);
+    const months = Math.floor(days / 30);
+    const years = Math.floor(days / 365);
+
+    let output;
+    if (seconds < 60) {
+        output = `${seconds} second${seconds === 1 ? '' : 's'} ago`;
+    } else if (minutes < 60) {
+        output = `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+    } else if (hours < 24) {
+        output = `${hours} hour${hours === 1 ? '' : 's'} ago`;
+    } else if (days < 7) {
+        output = `${days} day${days === 1 ? '' : 's'} ago`;
+    } else if (weeks < 4) {
+        output = `${weeks} week${weeks === 1 ? '' : 's'} ago`;
+    } else if (months < 12) {
+        output = `${months} month${months === 1 ? '' : 's'} ago`;
+    } else {
+        output = `${years} year${years === 1 ? '' : 's'} ago`;
+    }
+
+    return output;
+}
+
 // Eps Button Navigation
 const epsSelect = document.getElementById('selectElement');
 function firstEps() {
@@ -291,4 +348,72 @@ function nextEps() {
 }
 function lastEps() {
     epsSelect.selectedIndex = 0;
+}
+
+// Hiding the Dim
+function closeHistory() {
+    let dimDiv = document.getElementById('dim');
+    dimDiv.style.display = 'none';
+}
+closeHistory()
+
+function showHistory() {
+    let dimDiv = document.getElementById('dim');
+    dimDiv.style.display = 'flex';
+}
+
+
+// Adding a History
+function addHistory() {
+    let newDate = new Date();
+
+    const notes = {
+        date: newDate,
+        title: dataTitle + ' ' + dataEpisode,
+        url: dataURL
+    }
+
+    let local = JSON.parse(localStorage.getItem('history'));
+
+    if (local == null) {
+        const arr = [];
+        arr.push(notes);
+        localStorage.setItem('history', JSON.stringify(arr))
+    } else {
+        // Check if the number of items in the array is already 50
+        if (local.length >= 50) {
+            // Remove the oldest item from the array
+            local.shift();
+        }
+        local.push(notes);
+        localStorage.setItem('history', JSON.stringify(local))
+    }
+}
+
+const historyLists = document.getElementById('historyList');
+var timedifference;
+function historyReload() {
+    let array = JSON.parse(localStorage.getItem('history'));
+
+    if (array != null) {
+        historyLists.innerHTML = "";
+        for (let i = array.length - 1; i >= 0; i--) {
+            timedifference = getTimeDifference(array[i].date)
+            historyLists.innerHTML += `
+            <li>
+                <a href="/?anime=${array[i].url}">${array[i].title}</a> 
+                <span class="date">- ${timedifference}</span>
+            </li>`
+        }
+    } else {
+        historyLists.innerHTML = "History empty"
+    }
+}
+
+historyReload()
+
+// Clear History
+function clearHistory() {
+    localStorage.removeItem('history');
+    historyReload();
 }

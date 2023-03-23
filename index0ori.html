@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title id="title">astream - kuronekony4n</title>
+    <title id="title">astream - watch anime</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="./-media/fav2.svg" sizes="any" type="image/svg+xml">
 </head>
 
 <body>
+    <div id="dim">
+        <div class="history">
+            <div class="historyHead">
+                <h3>New! Watch History (Max 50)</h3>
+                <button id="closeHistory" onclick="closeHistory()">✖</button>
+            </div>
+            <ul class="historyList" id="historyList">
+                History empty
+            </ul>
+
+            <p class="historyDetail">
+                This data is saved on local storage, which mean only available on this browser and not saved on anywhere
+                else. You can clear the list by clicking here: <a onclick="clearHistory()">Clear History</a>
+                (permanent, can't undo!)
+            </p>
+        </div>
+    </div>
+
     <div class="container">
         <div id="playerContainer" class="video-container" style="display:
                 block;">
@@ -110,7 +128,7 @@
                     by <a href="https://facebook.com/addstring" target="_blank">WillyDev</a>-
                     <a href="/search">Fast Search</a> -
                     <a href="/app"> Download App</a> -
-                    <a href="/videoError.html"> Video Error</a>
+                    <a onclick="showHistory()"> History</a>
                 </div>
             </footer>
             <div class="counterDiv">
