@@ -382,7 +382,7 @@ function addHistory() {
         localStorage.setItem('history', JSON.stringify(arr))
     } else {
         // Check if the number of items in the array is already 50
-        if (local.length >= 50) {
+        if (local.length >= 10) {
             // Remove the oldest item from the array
             local.shift();
         }
