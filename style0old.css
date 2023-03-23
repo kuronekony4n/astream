@@ -69,6 +69,11 @@ body {
     font-weight: bold;
 }
 
+@media screen and (max-width: 768px) {
+    .video-title {
+        font-size: 1rem;
+    }
+}
 
 .container-search {
     display: flex;
@@ -127,6 +132,8 @@ body {
     margin-left: 5px;
 }
 
+@media screen and (max-width: 768px) {}
+
 .select-container {
     display: flex;
     align-items: center;
@@ -165,69 +172,68 @@ body {
     text-transform: uppercase;
 }
 
-.container-sresult {
-    padding: 10px 20px;
+#resultContainer {
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+}
+
+#resultContainer .row {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-#animeContainer {
-    display: grid;
-    gap: 0.4rem;
-    grid-template-columns: repeat(4, 24.333%);
-}
-
-#animeContainer>a {
-    background-color: #1d1d1d;
-    display: flex;
-    color: #fff;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 0.2rem;
-    text-decoration: none;
+    border-bottom: 1px solid #444;
+    padding: 10px 10px;
+    vertical-align: top;
     cursor: pointer;
+    background-color: #222222;
 }
 
-#animeContainer>a>img {
-    width: 100%;
-    height: 15rem;
-    object-fit: cover;
-    border-top-left-radius: 0.2rem;
-    border-top-right-radius: 0.2rem;
-}
-
-#animeContainer>a>.label {
+#resultContainer .subDir {
     display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    overflow: hidden;
-    padding: 0.75rem;
-}
-
-#animeContainer>a>.label> :is(.name, .url) {
-    width: 100%;
-    overflow: hidden;
-}
-
-#animeContainer>a>.label>.name {
-    font-size: 0.8rem;
+    background-color: #32B4FE;
     color: #fff;
-
-    -webkit-box-orient: vertical;
-    display: block;
-    display: -webkit-box;
-    overflow: hidden !important;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 50px;
+    height: 20px;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-#animeContainer>a>.label>.eps {
-    font-size: 0.7rem;
-    color: #ccc;
+#resultContainer .dubDir {
+    display: flex;
+    background-color: coral;
+    color: #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: 50px;
+    height: 20px;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
+#resultContainer #releaseYear {
+    font-size: 0.8rem;
+    color: #999999;
+    width: 10%;
+    text-align: right;
+}
+
+#resultContainer #tableName {
+    width: 80%;
+    text-align: left;
+    padding-left: 10px;
+}
 
 .fastsearchrow {
     display: flex;
@@ -386,8 +392,6 @@ h1.titleBig {
     border: 0;
     width: 100%;
     padding: 20px 20px;
-    border-radius: 5px;
-    margin-top: -10px;
 }
 
 img {
@@ -522,42 +526,4 @@ p.historyDetail {
 p.historyDetail a {
     color: #fff;
     cursor: pointer;
-}
-
-
-@media screen and (max-width: 768px) {
-    .video-title {
-        font-size: 1rem;
-    }
-
-    #animeContainer {
-        display: grid;
-        gap: 0.5rem;
-        grid-template-columns: repeat(2, 49.555%);
-
-    }
-
-    #animeContainer>a {
-        display: flex;
-        gap: 0.5rem;
-        padding-right: 0rem;
-        flex-direction: column;
-    }
-
-    #animeContainer>a>img {
-        width: 100%;
-        object-fit: cover;
-        border-radius: 0.2rem;
-        border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;
-    }
-
-
-    #animeContainer>a>.label {
-        display: flex;
-        flex-direction: column;
-        align-self: flex-start;
-        overflow: hidden;
-        padding: 0px 0px 10px 10px;
-    }
 }

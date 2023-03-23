@@ -2,7 +2,9 @@ const queryInput = document.getElementById("queryInput");
 const homeBtn = document.getElementById("homeBtn");
 const searchBtn = document.getElementById("searchBtn");
 const recentBtn = document.getElementById("recentBtn");
-const resultContainer = document.getElementById("resultContainer");
+const resultContainer = document.getElementById("animeContainer");
+const sresultContainer = document.querySelector(".container-sresult");
+
 const animeInfoContainer = document.getElementById("animeInfoContainer");
 const watchContainer = document.getElementById("qualityContainer");
 const mainLoading = document.getElementById("mainLoading");
@@ -52,7 +54,8 @@ if (appParam == 'true') {
 // Detect if searchBtn is clicked
 searchBtn.addEventListener("click", async function () {
     animeInfoContainer.style.display = `none`;
-    resultContainer.style.display = `flex`;
+    sresultContainer.style.display = `flex`;
+    resultContainer.style.display = `grid`;
     mainLoading.style.display = "flex";
     pageTitle.innerHTML = `astream - watch anime`
     recentBtn.style.display = "none";
@@ -71,7 +74,8 @@ searchBtn.addEventListener("click", async function () {
 async function getSearchByEnter(event) {
     if (event.keyCode === 13) {
         animeInfoContainer.style.display = `none`;
-        resultContainer.style.display = `flex`;
+        sresultContainer.style.display = `flex`;
+        resultContainer.style.display = `grid`;
         mainLoading.style.display = "flex";
         pageTitle.innerHTML = `astream - watch anime`
         recentBtn.style.display = "none";
@@ -99,7 +103,8 @@ homeBtn.addEventListener("click", function () {
 
 // Detect if recentBtn is clicked
 recentBtn.addEventListener("click", async function () {
-    resultContainer.style.display = `flex`;
+    sresultContainer.style.display = `flex`;
+    resultContainer.style.display = `grid`;
     mainLoading.style.display = "flex";
     recentBtn.style.display = "none";
 
@@ -111,21 +116,25 @@ recentBtn.addEventListener("click", async function () {
 
 // Display Recent Result
 function displayRecent(results) {
+    sresultContainer.style.display = `flex`;
     resultContainer.innerHTML = "";
     mainLoading.style.display = "none";
 
     results.forEach(result => {
-        const resultDiv = document.createElement("div");
-        resultDiv.className = "row";
+        const resultDiv = document.createElement("a");
         subType = `<div class="subDir">SUB</div>`;
         episodeNumber = `${result.episodeNumber}`;
         if (!episodeNumber.length) {
             episodeNumber = '???';
         }
-        episodeNumber = `<div id="releaseYear">Eps ${episodeNumber}</div>`
-        tableName = `<div id="tableName">${result.title.replace("(Dub)", "")}</div>`
-        resultTitle = `${subType} ${tableName} ${episodeNumber}`;
-        resultDiv.innerHTML = resultTitle;
+
+        resultDiv.innerHTML = `
+        <img src="${result.image}" alt="">
+        <div class="label">
+            <span class="name" title="${result.title.replace("(Dub)", "")}">${result.title.replace("(Dub)", "")}</span>
+            <span class="eps">Episode ${episodeNumber} (Subbed)</span>
+        </div>
+        `;
 
         resultDiv.addEventListener("click", async function () {
             mainLoading.style.display = "flex";
@@ -145,20 +154,23 @@ function displayRecent(results) {
 // Display Search Result
 function displayResults(results) {
     resultContainer.innerHTML = "";
+    sresultContainer.style.display = `flex`;
     mainLoading.style.display = "none";
 
     results.forEach(result => {
-        const resultDiv = document.createElement("div");
-        resultDiv.className = "row";
+        const resultDiv = document.createElement("a");
         subType = `<div class="${result.subOrDub.toLowerCase()}Dir">${result.subOrDub}</div>`;
         releaseDate = `${result.releaseDate.replace("Released: ", "")}`;
         if (!releaseDate.length) {
             releaseDate = '???';
         }
-        releaseDate = `<div id="releaseYear">${releaseDate}</div>`
-        tableName = `<div id="tableName">${result.title.replace("(Dub)", "")}</div>`
-        resultTitle = `${subType} ${tableName} ${releaseDate}`;
-        resultDiv.innerHTML = resultTitle;
+        resultDiv.innerHTML = `
+        <img src="${result.image}" alt="">
+        <div class="label">
+            <span class="name" title="${result.title.replace("(Dub)", "")}">${result.title.replace("(Dub)", "")}</span>
+            <span class="eps">Year ${releaseDate} (${result.subOrDub}bed)</span>
+        </div>
+        `;
 
         resultDiv.addEventListener("click", async function () {
             mainLoading.style.display = "flex";
@@ -196,6 +208,7 @@ async function fetchAnimeInfo() {
 function displayAnimeInfo(data) {
     animeInfoContainer.style.display = `block`;
     resultContainer.style.display = `none`;
+    sresultContainer.style.display = `none`;
     watchContainer.style.display = "none";
     mainLoading.style.display = "none";
 
