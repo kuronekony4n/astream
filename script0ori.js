@@ -360,6 +360,7 @@ closeHistory()
 function showHistory() {
     let dimDiv = document.getElementById('dim');
     dimDiv.style.display = 'flex';
+    historyReload();
 }
 
 

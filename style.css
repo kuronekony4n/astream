@@ -100,7 +100,7 @@ body {
     background-color: #32B4FE;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 10px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -109,14 +109,12 @@ body {
     background-color: coral;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 10px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .container-search svg {
-    width: 18px;
-    height: 18px;
     transform: scale(1.3);
 }
 
