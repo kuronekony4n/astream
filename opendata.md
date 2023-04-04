@@ -3,8 +3,6 @@ OpenData is a platform designed to help you easily create and manage lists of li
 
 By using JSON, you have the flexibility to customize your list exactly how you want it. You can choose from a wide variety of objects options, add images or other multimedia, link to external resources, and even embedding an entire websites.
 
-[TOC]
-
 # Create New Library
 ## Pre-made Examples
 
