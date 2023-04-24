@@ -13,7 +13,6 @@ const videoPlayer = document.getElementById("player")
 const statsFrame = document.getElementById("statsFrame")
 const watchBtn = document.getElementById("episodeButton");
 
-
 var dataTitle;
 var dataEpisode;
 var dataURL;
@@ -168,7 +167,7 @@ function displayResults(results) {
         <img src="${result.image}" alt="">
         <div class="label">
             <span class="name" title="${result.title.replace("(Dub)", "")}">${result.title.replace("(Dub)", "")}</span>
-            <span class="eps">Year ${releaseDate} (${result.subOrDub}bed)</span>
+            <span class="eps">Year ${releaseDate} (${result.subOrDub.charAt(0).toUpperCase() + result.subOrDub.slice(1)}bed)</span>
         </div>
         `;
 
@@ -283,7 +282,7 @@ function displayWatchInfo(episodeData) {
     for (let i = 0; i < resoBtn.length; i++) {
         resoBtn[i].addEventListener("click", function () {
             const serverUrl = this.value;
-            let proxyweb = 'https://corsbypass.herokuapp.com/'
+            let proxyweb = 'https://cute-cyan-millipede-coat.cyclic.app/'
             // let selectedServer = serverUrl.replace('https://', '');
             // selectedServer = selectedServer.replace('http://', '');
             let selectedServer = proxyweb + serverUrl;
@@ -343,6 +342,7 @@ function getTimeDifference(date) {
 
     return output;
 }
+
 
 // Eps Button Navigation
 const epsSelect = document.getElementById('selectElement');
@@ -430,4 +430,14 @@ historyReload()
 function clearHistory() {
     localStorage.removeItem('history');
     historyReload();
+}
+
+
+// Show watching message for 3 seconds
+function showWatchingMessage() {
+    const watchingContainer = document.getElementById("watchingContainer");
+    watchingContainer.style.display = "block";
+    setTimeout(() => {
+        watchingContainer.style.display = "none";
+    }, 115000);
 }

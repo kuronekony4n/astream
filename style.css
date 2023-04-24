@@ -561,3 +561,16 @@ p.historyDetail a {
         padding: 0px 0px 10px 10px;
     }
 }
+
+#watchingContainer {
+    font-size: 20px;
+    position: absolute; 
+    background-color: black; 
+    color: white; 
+    padding: 10px; 
+    z-index: 1;
+    display: none;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
