@@ -285,7 +285,7 @@ function displayWatchInfo(episodeData) {
             let proxyweb = 'https://cute-cyan-millipede-coat.cyclic.app/'
             // let selectedServer = serverUrl.replace('https://', '');
             // selectedServer = selectedServer.replace('http://', '');
-            let selectedServer = proxyweb + serverUrl;
+            let selectedServer = serverUrl;
 
             if (appParam == 'true') {
                 updateUrl(`?playInApp=${selectedServer}`);
