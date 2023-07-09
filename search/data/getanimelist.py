@@ -1,4 +1,5 @@
 # Run this for updating the anime.json
+# change end_num for the last pagination in gogoanime anime list page
 
 import requests
 import json
