@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // For more options see: https://github.com/sampotts/plyr/#options
     // captions.update is required for captions to work with hls.js
     const defaultOptions = {
-        controls: ['play-large', 'rewind', 'play', 'fast-forward', 'progress', 'current-time', 'duration', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
+        controls: ['play-large', 'rewind', 'play', 'progress', 'current-time', 'duration', 'fast-forward', 'mute', 'volume', 'captions', 'settings', 'pip', 'fullscreen'],
         settings: ['captions', 'quality', 'speed', 'loop'],
         ratio: "16:9",
         tooltips: {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // From the m3u8 playlist, hls parses the manifest and returns
         // all available video qualities. This is important, in this approach,
         // we will have one source on the Plyr player.
-        hls.on(Hls.Events.MANIFEST_PARSED, function(event, data) {
+        hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
 
             // Transform available levels into an array of integers (height values).
             const availableQualities = hls.levels.map((l) => l.height)

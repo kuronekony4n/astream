@@ -247,7 +247,6 @@ body {
     padding: 10px 50px 20px 50px;
     color: #999999;
     font-size: 0.8rem;
-    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -564,10 +563,10 @@ p.historyDetail a {
 
 #watchingContainer {
     font-size: 20px;
-    position: absolute; 
-    background-color: black; 
-    color: white; 
-    padding: 10px; 
+    position: absolute;
+    background-color: black;
+    color: white;
+    padding: 10px;
     z-index: 1;
     display: none;
     left: 50%;

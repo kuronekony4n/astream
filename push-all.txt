@@ -1,3 +1,5 @@
+# Sometimes I forget how to do this LOL 
+
 git add .
 git commit -m "yes"
 git push -u origin master
